@@ -61,11 +61,29 @@
     
     self.moviePlayer.contentURL = videoURL;
     [self.moviePlayer play];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(videoPlayBackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:nil];
 }
 
 -(void)youTubeExtractor:(LBYouTubeExtractor *)extractor failedExtractingYouTubeURLWithError:(NSError *)error {
     if ([self.delegate respondsToSelector:@selector(youTubePlayerViewController:failedExtractingYouTubeURLWithError:)]) {
         [self.delegate youTubePlayerViewController:self failedExtractingYouTubeURLWithError:error];
+    }
+}
+
+- (void)videoPlayBackDidFinish:(NSNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:nil];
+    
+    [self.moviePlayer stop];
+    
+    if ([self.delegate respondsToSelector:@selector(videoPlayBackDidFinish:)]) {
+        [self.delegate videoPlayBackDidFinish];
     }
 }
 

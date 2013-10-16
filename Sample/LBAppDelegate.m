@@ -18,7 +18,7 @@
     // in the demo app, other than it logs the extracted URL
     // to the console, as you can see here:
     
-    LBYouTubeExtractor *extractor = [[LBYouTubeExtractor alloc] initWithURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=1fTIhC1WSew&list=FLEYfH4kbq85W_CiOTuSjf8w&feature=mh_lolz"] quality:LBYouTubeVideoQualityLarge];
+    LBYouTubeExtractor *extractor = [[LBYouTubeExtractor alloc] initWithURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=_BwyFGUNE64"] quality:LBYouTubeVideoQualitySmall];
     
     [extractor extractVideoURLWithCompletionBlock:^(NSURL *videoURL, NSError *error) {
         if(!error) {
@@ -30,7 +30,7 @@
     
     // Setup the player controller and add it's view as a subview:
     
-    LBYouTubePlayerViewController* controller = [[LBYouTubePlayerViewController alloc] initWithYouTubeURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=1fTIhC1WSew&list=FLEYfH4kbq85W_CiOTuSjf8w&feature=mh_lolz"] quality:LBYouTubeVideoQualityLarge];
+    LBYouTubePlayerViewController* controller = [[LBYouTubePlayerViewController alloc] initWithYouTubeURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=_BwyFGUNE64"] quality:LBYouTubeVideoQualitySmall];
     controller.delegate = self;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
