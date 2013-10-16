@@ -82,7 +82,7 @@
     
     [self.moviePlayer stop];
     
-    if ([self.delegate respondsToSelector:@selector(videoPlayBackDidFinish:)]) {
+    if ([self.delegate respondsToSelector:@selector(videoPlayBackDidFinish)]) {
         [self.delegate videoPlayBackDidFinish];
     }
 }
